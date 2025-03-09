@@ -1,0 +1,790 @@
+<!--<!doctype html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <title>Sygrre</title>
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        default header name is X-CSRF-TOKEN
+        <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        default header name is X-CSRF-TOKEN
+        <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+        <link rel="icon" th:href="@{/dist/img/2amoirieTogo.png}" type="image/x-icon" />
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/plugins/bootstrap/dist/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/icon-kit/dist/css/iconkit.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/ionicons/dist/css/ionicons.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/perfect-scrollbar/css/perfect-scrollbar.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/jvectormap/jquery-jvectormap.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/weather-icons/css/weather-icons.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/c3/c3.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/owl.carousel/dist/assets/owl.carousel.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/owl.carousel/dist/assets/owl.theme.default.min.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/theme.min.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/bootstrap-responsive-tabs.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/personnalise.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/bootstrap-select.min.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/bootstrap4-toggle.min.css}"/>
+        <link th:href="@{/assets/css/jquery-confirm.min.css}" rel="stylesheet" type="text/css">
+            <script th:src="@{/dist/js/jquery.min.js}"></script>
+            <script th:src="@{/src/js/vendor/jquery-3.3.1.min.js}"></script>
+            <script type="text/javascript" th:src="@{/src/js/vendor/modernizr-2.8.3.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/vue.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/vue-router.min.js}"></script>
+
+            <script th:src="@{/dist/js/jquery.slim.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/config.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/GenericServices.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/notify.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/bootstrap-notify.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/jquery-confirm.min.js}"></script>
+
+            <script type="text/javascript" th:src="@{/src/js/vendor/modernizr-2.8.3.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/vue.js}"></script>
+                        <script>
+                            var contextPath = location.protocol + '//' + location.host + $('#contextPathUrl').attr('href');
+                            contextPath = contextPath.substring(0, contextPath.length - 1);
+                        </script>
+                        <script type="text/javascript" th:src="@{/assets/js/GenericServices.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/notify.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/bootstrap-notify.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/jquery-confirm.min.js}"></script>
+
+            <script th:src="@{/dist/js/jquery.preloaders.js}"></script>
+            <script th:src="@{/js/progressBar.js}"></script>
+            <style> 
+                [v-cloak] { 
+                    display: none; 
+                } 
+            </style> 
+
+
+
+    </head>
+
+    <body>
+        <a style="display: none; " id="contextPathUrl" th:href="@{/}"></a>
+
+        [if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]
+                <div class="wrapper">
+                    <header class="header-top" header-theme="dark">
+                        <div class="container-fluid">
+                            <div class="d-flex justify-content-between">
+                                <ul class="nav nav-bar-nav hidden-xs">
+                                    <li><a href="#" class="waves-effect waves-light"><span class="ik ik-settings m-r-5"></span>Dropdown</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown"
+                                           role="button" aria-haspopup="true" aria-expanded="false"><span class="ik ik-settings m-r-5"></span>Administration <span
+                                                class="ik ik-chevron-down"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="tab"><a onclick="saveInSession('Habil'); menuInContent('Habil');" data-toggle="tab" aria-expanded="false" href="#habilitation"><span class="ik ik-layers m-r-5"></span>Habilitation</a></li>
+                                            <li class="tab"><a onclick="saveInSession('paramTiers'); menuInContent('paramTiers');" data-toggle="tab" aria-expanded="false" href="#param-Tiers"><span class="ik ik-user-check m-r-5"></span>Profil d'utilisateurs</a></li>                                    
+                                        </ul>
+                                    </li>
+                                </ul>
+        
+                                <div class="top-menu d-flex align-items-center">
+                                    <div class="dropdown">
+                                        <span class="user username">KPEGOUNI Sadate</span>
+                                        <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" th:src="@{/img/user.jpg}" alt=""></a>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                            <a class="dropdown-item" href="#"><i class="ik ik-user dropdown-icon"></i> Profile</a>
+                                            <a class="dropdown-item" th:href="@{/logout}"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+        
+                    <div class="page-wrap">
+                        <div class="app-sidebar colored">
+                            <div class="sidebar-header">
+                                <a class="header-brand" th:href="@{/}">
+                                    <div class="logo-img">
+                                        <img th:src="@{/dist/img/2amoirieTogo.png}" class="header-brand-img" width="45" />  
+                                    </div>
+                                    <span class="text">MEF-TOGO</span>
+                                </a>
+                                <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
+                                 <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button> 
+                            </div>
+        
+                            <div class="sidebar-content">
+                                <div class="nav-container">
+                                    <nav id="main-menu-navigation" class="navigation-main">
+                                        <div class="tab-content tabcont" style="display: block;">
+                                            <div  class="tab-pane Habil module-menu menu-etiquette" id="habilitation">
+                                                <div class="nav-item has-sub">
+                                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Habilitation</span> </a>
+                                                    <div class="submenu-content">
+                                                        <a onclick="saveInSession('Habil'); getClassSession(this);" th:href="@{/utilisateur/liste}" class="menu-item Habil1">Utilisateurs</a>
+                                                        <a onclick="saveInSession('Habil'); getClassSession(this);" th:href="@{/profil-utilisateur/list}" class="menu-item Habil2">Profils d'utilisateurs</a>
+                                                        <a onclick="saveInSession('Habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item Habil3">Groupe d'utilisateurs</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-content" >
+                            <div class="container-fluid" layout:fragment="content">
+        
+                            </div>
+                        </div>
+        
+                        <footer class="footer">
+                            <div class="w-100 clearfix">
+                                <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Next Generation Services . All Rights Reserved.</span>
+                            </div>
+                        </footer>
+        
+                    </div>
+                </div>
+        <div class="wrapper">
+            <header class="header-top" header-theme="dark">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between">
+                        top menu
+                        <div th:include="t_head">
+                        </div>
+                        <div class="top-menu d-flex align-items-center  " sec:authorize="hasAnyAuthority('CONNECTED')">
+                            <div class="dropdown " id="appTemplate"  v-cloak >
+                                <span class="user username" >{{user.firstName}}  {{user.lastName}}</span>
+                                <span class="user username">KPEGOUNI Sadate</span>
+                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" th:src="@{/img/profil.png}" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" th:href="@{/utilisateur/profil}" ><i class="ik ik-user dropdown-icon"></i> Profil</a>
+                                    <a class="dropdown-item" th:href="@{/logout}"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-wrap">
+                <div class="app-sidebar colored">
+                    <div class="sidebar-header">
+                        <a class="header-brand" th:href="@{/}">
+                            <div class="logo-img">
+                                <img th:src="@{/dist/img/2amoirieTogo.png}" class="header-brand-img" width="45" />  
+                            </div>
+                            <span class="text">MEF-TOGO</span>
+                        </a>
+                        <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
+                         <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button> 
+                    </div>
+
+                    <div class="sidebar-content">
+                        <div class="nav-container">
+                            <div th:include="t_left">
+                            </div>
+                                                        <nav id="main-menu-navigation" class="navigation-main">
+                                                            <div class="tab-content tabcont" style="display: block;">
+                                                                left menu
+                                                                                                                                        <div th:include="t_left">
+                                                                                                                                        </div>
+                                                                <div  class="tab-pane  habil module-menu menu-etiquette " id="habilitation">
+                                                                    <div class="nav-item has-sub habil " sec:authorize="hasAnyAuthority('FC_HABILIT')">
+                                                                        <a ><i class="ik ik-layers"></i><span>Habilitation</span> </a>
+                                                                        <div class="submenu-content">
+                                                                            <a class="habil1" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/utilisateur/liste}" sec:authorize="hasAnyAuthority('FC_USER')">Utilisateurs</a>
+                                                                            <a class="habil2" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/profil-utilisateur/list}"  sec:authorize="hasAnyAuthority('FC_PROF')">Profils d'utilisateurs</a>
+                                                                            <a onclick="saveInSession('habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item habilitation3">Groupe d'utilisateurs</a>
+                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content" >
+                    <div class="container-fluid" layout:fragment="content">
+
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="w-100 clearfix">
+                        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Next Generation Services . All Rights Reserved.</span>
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+        <th:block layout:fragment="templates"></th:block>
+        <th:block layout:fragment="stylesheets"></th:block>
+        <script>
+            var contextPath = location.protocol + '//' + location.host + $('#contextPathUrl').attr('href');
+            contextPath = contextPath.substring(0, contextPath.length - 1);
+        </script>
+        <script type="text/javascript" th:src="@{/assets/js/GenericServices.js}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>window.jQuery || document.write('<script th:src="@{/src/js/vendor/jquery-3.3.1.min.js}"><\/script>')</script>
+        <script th:src="@{/plugins/popper.js/dist/umd/popper.min.js}"></script>
+        <script th:src="@{/plugins/bootstrap/dist/js/bootstrap.min.js}"></script>       
+        <script th:src="@{/plugins/screenfull/dist/screenfull.js}"></script>
+        <script th:src="@{/plugins/datatables.net/js/jquery.dataTables.min.js}"></script>
+        <script th:src="@{/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js}"></script>
+        <script th:src="@{/plugins/datatables.net-responsive/js/dataTables.responsive.min.js}"></script>
+        <script th:src="@{/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js}"></script>
+        <script th:src="@{/plugins/jvectormap/jquery-jvectormap.min.js}"></script>
+        <script th:src="@{/plugins/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js}"></script>
+        <script th:src="@{/plugins/moment/moment.js}"></script>
+        <script th:src="@{/plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js}"></script>
+        <script th:src="@{/plugins/d3/dist/d3.min.js}"></script>
+        <script th:src="@{/plugins/c3/c3.min.js}"></script>
+        <script th:src="@{/js/tables.js}"></script>
+        <script th:src="@{/js/widgets.js}"></script>
+        <script th:src="@{/js/charts.js}"></script>
+        <script th:src="@{/dist/js/jquery.bootstrap-responsive-tabs.min.js}"></script>
+        <script th:src="@{/dist/js/bootstrap-select.min.js}"></script>
+        <script th:src="@{/dist/js/bootstrap4-toggle.min.js}"></script>
+        <script th:src="@{/plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js}"></script>
+        <script th:src="@{/dist/js/theme.min.js}"></script>
+
+
+        <th:block layout:fragment="scripts"></th:block>
+         Google Analytics: change UA-XXXXX-X to be your site's ID. 
+        <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function () {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = 'https://www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                let menuCrnt = $("#welcomen").attr("data-id");
+                let activeMenu = sessionStorage.getItem("nomClass");
+
+                //                console.log("MENU ACTIVE  " + activeMenu);
+                if (menuCrnt === "paramContexte") {
+                    menuCrnt = activeMenu;
+                }
+                //                console.log("MENU CRNT " + menuCrnt);
+                //                console.log("MENU ACTIVE MENU " + activeMenu);
+                if (activeMenu == menuCrnt) {
+                    if (activeMenu != '') {
+                        //                        console.log("MENU ACTIVE VALUE " + activeMenu);
+                        //                        $("." + activeMenu).removeClass("selected");
+                        //                        $("." + activeMenu).add("active");
+                        //                        $("." + activeMenu).add("open");
+                    }
+                    sessionStorage.setItem("nomClass", menuCrnt);
+                    var selector = sessionStorage.getItem("nomClass");
+                    var selectorlink = sessionStorage.getItem("clickMenuClass");
+                    //                    var selector = sessionStorage.getItem("nomClass");
+                    //                    console.log("selectorlink " + selectorlink);
+                    if (selectorlink != '') {
+                        $("." + selectorlink).addClass("selected");
+                    }
+                    if (selector != '') {
+                        //                        console.log("MENU ACTIVE VALUE TOO " + menuCrnt);
+                        $("." + selector).addClass("active");
+
+                        //                        console.log("MENU ACTIVE VALUE SELECTOR " + selector);
+                        $("." + selector).addClass("open");
+                    }
+                }
+                //                if (activeMenu == menuCrnt) {
+                //                    $("." + activeMenu).add("active");
+                //                    $("." + activeMenu).add("open");
+                //                }
+            });
+            /**
+             * fonction qui sauvegarde le menu sélectionné 
+             * @param {type} nomClass
+             * @returns {undefined}
+             */
+            function saveInSession(nomClass) {
+                sessionStorage.setItem("nomClass", nomClass);
+                var classeName = sessionStorage.getItem("nomClass");
+
+                $('.tab-pane').removeClass("active");
+                $("." + classeName).addClass("active");
+                $('.tabcont').css("display", "block");
+
+            }
+
+            function clear() {
+                $('.tabcont').css("display", "none");
+            }
+
+            /**
+             * fonction qui sauvegarde le sous menu sélectionné
+             * @param {type} event
+             * @returns {undefined}
+             */
+            function getClassSession(event) {
+                var myClas = $(event).attr('class');
+                sessionStorage.setItem("clickMenuClass", myClas);
+            }
+
+            //            $(document).ready(function () {
+            //
+            //                $('.responsive-tabs ').responsiveTabs({
+            //                    accordionOn: ['xs', 'sm'] //  xs, sm, md, lg   
+            //                });
+            //            });
+
+            //                                                                        var token = $("meta[name='_csrf']").attr("content");
+            //                                                                        var header = $("meta[name='_csrf_header']").attr("content");
+            //                     $ ('.responsive-tabs ').responsiveTabs({
+            //                accordionOn : ['xs','sm'] //  xs, sm, md, lg   
+            //              } ) ;
+        </script>
+        <script>
+            var appTemplate = new Vue({
+                el: '#appTemplate',
+                data: {
+                    user: {},
+                },
+                methodes: {
+                    getUserInformation: function () {
+
+                    },
+                },
+            });
+
+            appTemplate.getUserInformation = function () {
+                var url = "/api/gestion/utilisateur/getUtilisateurConnect";
+                GenericService.get(url).then(function (data) {
+                    appTemplate.user = data.userDTO;
+                }, function (error) {
+                    console.log(error);
+                });
+            };
+            appTemplate.getUserInformation();
+        </script>
+    </body>
+</html>-->
+<!doctype html>
+<html class="no-js" xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <!--xmlns:sec="http://www.thymeleaf.org/extras/spring-security"-->
+
+        <meta charset="utf-8"/>
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <title>Sygrre</title>
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        <!--default header name is X-CSRF-TOKEN-->
+        <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+        <meta name="_csrf" th:content="${_csrf.token}"/>
+        <!--default header name is X-CSRF-TOKEN-->
+        <meta name="_csrf_header" th:content="${_csrf.headerName}" />
+
+        <link rel="icon" th:href="@{/dist/img/2amoirieTogo.png}" type="image/x-icon" />
+
+        <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800" rel="stylesheet"/>
+
+        <link rel="stylesheet" th:href="@{/plugins/bootstrap/dist/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/icon-kit/dist/css/iconkit.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/ionicons/dist/css/ionicons.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/perfect-scrollbar/css/perfect-scrollbar.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/jvectormap/jquery-jvectormap.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/weather-icons/css/weather-icons.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/c3/c3.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/owl.carousel/dist/assets/owl.carousel.min.css}"/>
+        <link rel="stylesheet" th:href="@{/plugins/owl.carousel/dist/assets/owl.theme.default.min.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/theme.min.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/bootstrap-responsive-tabs.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/personnalise.css}"/>
+        <!--<link rel="stylesheet" th:href="@{/css/personnalise.css}"/>-->
+        <link rel="stylesheet" th:href="@{/dist/css/bootstrap-select.min.css}"/>
+        <link rel="stylesheet" th:href="@{/dist/css/bootstrap4-toggle.min.css}"/>
+        <link th:href="@{/assets/css/jquery-confirm.min.css}" rel="stylesheet" type="text/css">
+            <!--<script th:src="@{/dist/js/jquery.min.js}"></script>-->
+            <script th:src="@{/src/js/vendor/jquery-3.3.1.min.js}"></script>
+            <script type="text/javascript" th:src="@{/src/js/vendor/modernizr-2.8.3.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/vue.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/vue-router.min.js}"></script>
+
+            <!--<script th:src="@{/dist/js/jquery.slim.min.js}"></script>-->
+            <script type="text/javascript" th:src="@{/assets/js/config.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/GenericServices.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/notify.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/bootstrap-notify.min.js}"></script>
+            <script type="text/javascript" th:src="@{/assets/js/jquery-confirm.min.js}"></script>
+
+            <script type="text/javascript" th:src="@{/src/js/vendor/modernizr-2.8.3.min.js}"></script>
+            <!--<script type="text/javascript" th:src="@{/assets/js/vue.js}"></script>-->
+            <!--            <script>
+                            var contextPath = location.protocol + '//' + location.host + $('#contextPathUrl').attr('href');
+                            contextPath = contextPath.substring(0, contextPath.length - 1);
+                        </script>
+                        <script type="text/javascript" th:src="@{/assets/js/GenericServices.js}"></script>-->
+            <!--<script type="text/javascript" th:src="@{/assets/js/notify.js}"></script>-->
+            <!--<script type="text/javascript" th:src="@{/assets/js/bootstrap-notify.min.js}"></script>-->
+            <!--<script type="text/javascript" th:src="@{/assets/js/jquery-confirm.min.js}"></script>-->
+
+            <script th:src="@{/dist/js/jquery.preloaders.js}"></script>
+            <script th:src="@{/js/progressBar.js}"></script>
+            <style> 
+                [v-cloak] { 
+                    display: none; 
+                } 
+            </style> 
+
+
+
+    </head>
+
+    <body>
+        <a style="display: none; " id="contextPathUrl" th:href="@{/}"></a>
+
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <!--        <div class="wrapper">
+                    <header class="header-top" header-theme="dark">
+                        <div class="container-fluid">
+                            <div class="d-flex justify-content-between">
+                                <ul class="nav nav-bar-nav hidden-xs">
+                                    <li><a href="#" class="waves-effect waves-light"><span class="ik ik-settings m-r-5"></span>Dropdown</a></li>
+                                    <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown"
+                                           role="button" aria-haspopup="true" aria-expanded="false"><span class="ik ik-settings m-r-5"></span>Administration <span
+                                                class="ik ik-chevron-down"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li class="tab"><a onclick="saveInSession('Habil'); menuInContent('Habil');" data-toggle="tab" aria-expanded="false" href="#habilitation"><span class="ik ik-layers m-r-5"></span>Habilitation</a></li>
+                                            <li class="tab"><a onclick="saveInSession('paramTiers'); menuInContent('paramTiers');" data-toggle="tab" aria-expanded="false" href="#param-Tiers"><span class="ik ik-user-check m-r-5"></span>Profil d'utilisateurs</a></li>                                    
+                                        </ul>
+                                    </li>
+                                </ul>
+        
+                                <div class="top-menu d-flex align-items-center">
+                                    <div class="dropdown">
+                                        <span class="user username">KPEGOUNI Sadate</span>
+                                        <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" th:src="@{/img/user.jpg}" alt=""></a>
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                            <a class="dropdown-item" href="#"><i class="ik ik-user dropdown-icon"></i> Profile</a>
+                                            <a class="dropdown-item" th:href="@{/logout}"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+        
+                    <div class="page-wrap">
+                        <div class="app-sidebar colored">
+                            <div class="sidebar-header">
+                                <a class="header-brand" th:href="@{/}">
+                                    <div class="logo-img">
+                                        <img th:src="@{/dist/img/2amoirieTogo.png}" class="header-brand-img" width="45" />  
+                                    </div>
+                                    <span class="text">MEF-TOGO</span>
+                                </a>
+                                <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
+                                 <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button> 
+                            </div>
+        
+                            <div class="sidebar-content">
+                                <div class="nav-container">
+                                    <nav id="main-menu-navigation" class="navigation-main">
+                                        <div class="tab-content tabcont" style="display: block;">
+                                            <div  class="tab-pane Habil module-menu menu-etiquette" id="habilitation">
+                                                <div class="nav-item has-sub">
+                                                    <a href="javascript:void(0)"><i class="ik ik-layers"></i><span>Habilitation</span> </a>
+                                                    <div class="submenu-content">
+                                                        <a onclick="saveInSession('Habil'); getClassSession(this);" th:href="@{/utilisateur/liste}" class="menu-item Habil1">Utilisateurs</a>
+                                                        <a onclick="saveInSession('Habil'); getClassSession(this);" th:href="@{/profil-utilisateur/list}" class="menu-item Habil2">Profils d'utilisateurs</a>
+                                                        <a onclick="saveInSession('Habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item Habil3">Groupe d'utilisateurs</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-content" >
+                            <div class="container-fluid" layout:fragment="content">
+        
+                            </div>
+                        </div>
+        
+                        <footer class="footer">
+                            <div class="w-100 clearfix">
+                                <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Next Generation Services . All Rights Reserved.</span>
+                            </div>
+                        </footer>
+        
+                    </div>
+                </div>-->
+        <div class="wrapper">
+            <header class="header-top" header-theme="dark">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between">
+                        <!--top menu-->
+                        <div th:include="t_head">
+                        </div>
+                        <div class="top-menu d-flex align-items-center  " sec:authorize="hasAnyAuthority('CONNECTED')">
+                            <div class="dropdown " id="appTemplate"  v-cloak >
+                                <span class="user username" >{{user.firstName}}  {{user.lastName}}</span>
+                                <!--<span class="user username">KPEGOUNI Sadate</span>-->
+                                <a class="dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="avatar" th:src="@{/img/profil.png}" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" th:href="@{/utilisateur/profil}" ><i class="ik ik-user dropdown-icon"></i> Profil</a>
+                                    <a class="dropdown-item" th:href="@{/logout}"><i class="ik ik-power dropdown-icon"></i> Logout</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="page-wrap">
+                <div class="app-sidebar colored">
+                    <div class="sidebar-header">
+                        <a class="header-brand" th:href="@{/}">
+                            <div class="logo-img">
+                                <img th:src="@{/dist/img/2amoirieTogo.png}" class="header-brand-img" width="45" />  
+                            </div>
+                            <span class="text">MEF-TOGO</span>
+                        </a>
+                        <button type="button" class="nav-toggle"><i data-toggle="expanded" class="ik ik-toggle-right toggle-icon"></i></button>
+                        <!-- <button id="sidebarClose" class="nav-close"><i class="ik ik-x"></i></button> -->
+                    </div>
+
+                    <div class="sidebar-content">
+                        <div class="nav-container">
+                            <div th:include="t_left">
+                            </div>
+                            <!--                            <nav id="main-menu-navigation" class="navigation-main">
+                                                            <div class="tab-content tabcont" style="display: block;">
+                                                                left menu
+                                                                                                                                        <div th:include="t_left">
+                                                                                                                                        </div>
+                                                                <div  class="tab-pane  habil module-menu menu-etiquette " id="habilitation">
+                                                                    <div class="nav-item has-sub habil " sec:authorize="hasAnyAuthority('FC_HABILIT')">
+                                                                        <a ><i class="ik ik-layers"></i><span>Habilitation</span> </a>
+                                                                        <div class="submenu-content">
+                                                                            <a class="habil1" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/utilisateur/liste}" sec:authorize="hasAnyAuthority('FC_USER')">Utilisateurs</a>
+                                                                            <a class="habil2" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/profil-utilisateur/list}"  sec:authorize="hasAnyAuthority('FC_PROF')">Profils d'utilisateurs</a>
+                                                                            <a onclick="saveInSession('habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item habilitation3">Groupe d'utilisateurs</a>
+                            
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </nav>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="main-content" >
+                    <div class="container-fluid" layout:fragment="content">
+
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="w-100 clearfix">
+                        <!--<span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Next Generation Services . All Rights Reserved.</span>-->
+                    </div>
+                </footer>
+
+            </div>
+        </div>
+        <th:block layout:fragment="templates"></th:block>
+        <th:block layout:fragment="stylesheets"></th:block>
+        <script>
+            var contextPath = location.protocol + '//' + location.host + $('#contextPathUrl').attr('href');
+            contextPath = contextPath.substring(0, contextPath.length - 1);
+        </script>
+        <!--<script type="text/javascript" th:src="@{/assets/js/GenericServices.js}"></script>-->
+        <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>-->
+        <!--<script>window.jQuery || document.write('<script th:src="@{/src/js/vendor/jquery-3.3.1.min.js}"><\/script>')</script>-->
+        <script th:src="@{/plugins/popper.js/dist/umd/popper.min.js}"></script>
+        <script th:src="@{/plugins/bootstrap/dist/js/bootstrap.min.js}"></script>       
+        <script th:src="@{/plugins/screenfull/dist/screenfull.js}"></script>
+        <script th:src="@{/plugins/datatables.net/js/jquery.dataTables.min.js}"></script>
+        <script th:src="@{/plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js}"></script>
+        <script th:src="@{/plugins/datatables.net-responsive/js/dataTables.responsive.min.js}"></script>
+        <script th:src="@{/plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js}"></script>
+        <!--<script th:src="@{/plugins/jvectormap/jquery-jvectormap.min.js}"></script>-->
+        <!--<script th:src="@{/plugins/jvectormap/tests/assets/jquery-jvectormap-world-mill-en.js}"></script>-->
+        <script th:src="@{/plugins/moment/moment.js}"></script>
+        <script th:src="@{/plugins/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js}"></script>
+        <script th:src="@{/plugins/d3/dist/d3.min.js}"></script>
+        <script th:src="@{/plugins/c3/c3.min.js}"></script>
+        <script th:src="@{/js/tables.js}"></script>
+        <!--<script th:src="@{/js/widgets.js}"></script>-->
+        <script th:src="@{/js/charts.js}"></script>
+        <script th:src="@{/dist/js/jquery.bootstrap-responsive-tabs.min.js}"></script>
+        <script th:src="@{/dist/js/bootstrap-select.min.js}"></script>
+        <script th:src="@{/dist/js/bootstrap4-toggle.min.js}"></script>
+        <script th:src="@{/plugins/perfect-scrollbar/dist/perfect-scrollbar.min.js}"></script>
+        <script th:src="@{/dist/js/theme.min.js}"></script>
+
+
+        <th:block layout:fragment="scripts"></th:block>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function (b, o, i, l, e, r) {
+                b.GoogleAnalyticsObject = l;
+                b[l] || (b[l] =
+                        function () {
+                            (b[l].q = b[l].q || []).push(arguments)
+                        });
+                b[l].l = +new Date;
+                e = o.createElement(i);
+                r = o.getElementsByTagName(i)[0];
+                e.src = 'https://www.google-analytics.com/analytics.js';
+                r.parentNode.insertBefore(e, r)
+            }(window, document, 'script', 'ga'));
+            ga('create', 'UA-XXXXX-X', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script type="text/javascript">
+            $(function () {
+                let menuCrnt = $("#welcomen").attr("data-id");
+                let activeMenu = sessionStorage.getItem("nomClass");
+
+                //                console.log("MENU ACTIVE  " + activeMenu);
+                if (menuCrnt === "paramContexte") {
+                    menuCrnt = activeMenu;
+                }
+                //                console.log("MENU CRNT " + menuCrnt);
+                //                console.log("MENU ACTIVE MENU " + activeMenu);
+                if (activeMenu == menuCrnt) {
+                    if (activeMenu != '') {
+                        //                        console.log("MENU ACTIVE VALUE " + activeMenu);
+                        //                        $("." + activeMenu).removeClass("selected");
+                        //                        $("." + activeMenu).add("active");
+                        //                        $("." + activeMenu).add("open");
+                    }
+                    sessionStorage.setItem("nomClass", menuCrnt);
+                    var selector = sessionStorage.getItem("nomClass");
+                    var selectorlink = sessionStorage.getItem("clickMenuClass");
+                    //                    var selector = sessionStorage.getItem("nomClass");
+                    //                    console.log("selectorlink " + selectorlink);
+                    if (selectorlink != '') {
+                        $("." + selectorlink).addClass("selected");
+                    }
+                    if (selector != '') {
+                        //                        console.log("MENU ACTIVE VALUE TOO " + menuCrnt);
+                        $("." + selector).addClass("active");
+
+                        //                        console.log("MENU ACTIVE VALUE SELECTOR " + selector);
+                        $("." + selector).addClass("open");
+                    }
+                }
+                //                if (activeMenu == menuCrnt) {
+                //                    $("." + activeMenu).add("active");
+                //                    $("." + activeMenu).add("open");
+                //                }
+            });
+            /**
+             * fonction qui sauvegarde le menu sélectionné 
+             * @param {type} nomClass
+             * @returns {undefined}
+             */
+            function saveInSession(nomClass) {
+                sessionStorage.setItem("nomClass", nomClass);
+                var classeName = sessionStorage.getItem("nomClass");
+
+                $('.tab-pane').removeClass("active");
+                $("." + classeName).addClass("active");
+                $('.tabcont').css("display", "block");
+
+            }
+
+            function clear() {
+                $('.tabcont').css("display", "none");
+            }
+
+            /**
+             * fonction qui sauvegarde le sous menu sélectionné
+             * @param {type} event
+             * @returns {undefined}
+             */
+            function getClassSession(event) {
+                var myClas = $(event).attr('class');
+                sessionStorage.setItem("clickMenuClass", myClas);
+            }
+
+            //            $(document).ready(function () {
+            //
+            //                $('.responsive-tabs ').responsiveTabs({
+            //                    accordionOn: ['xs', 'sm'] //  xs, sm, md, lg   
+            //                });
+            //            });
+
+            //                                                                        var token = $("meta[name='_csrf']").attr("content");
+            //                                                                        var header = $("meta[name='_csrf_header']").attr("content");
+            //                     $ ('.responsive-tabs ').responsiveTabs({
+            //                accordionOn : ['xs','sm'] //  xs, sm, md, lg   
+            //              } ) ;
+        </script>
+        <script>
+            var appTemplate = new Vue({
+                el: '#appTemplate',
+                data: {
+                    user: {},
+                },
+                methodes: {
+                    getUserInformation: function () {
+
+                    },
+                },
+            });
+
+            appTemplate.getUserInformation = function () {
+                var url = "/api/gestion/utilisateur/getUtilisateurConnect";
+                GenericService.get(url).then(function (data) {
+                    appTemplate.user = data.userDTO;
+                }, function (error) {
+                    console.log(error);
+                });
+            };
+            appTemplate.getUserInformation();
+        </script>
+    </body>
+</html>
+

@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Alassani (generated)" id="03-12-2020-14-07">
+        <createTable  schemaName="${socle_schema_name}" tableName="socle_param_code">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="code" type="VARCHAR(40)"/>
+            <column name="description" type="VARCHAR(500)"/>
+        </createTable>
+    </changeSet>
+    <changeSet  author="Alassani (generated)" id="03-12-2020-14-08">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="socle_param_code_pkey"
+                       tableName="socle_param_code"/>
+        <addUniqueConstraint schemaName="${socle_schema_name}" 
+                             columnNames="code" constraintName="socle_param_code_unique_contraint_code"
+                             tableName="socle_param_code"/>
+    </changeSet>
+    
+    <changeSet author="Alassani (generated)" id="03-12-2020-14-30">
+        <createTable  schemaName="${socle_schema_name}" tableName="socle_param_list">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="code" type="VARCHAR(40)"/>
+            <column name="libelle" type="VARCHAR(500)"/>
+            <column name="param_code" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet  author="Alassani (generated)" id="03-12-2020-14-31">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="socle_param_list_pkey"
+                       tableName="socle_param_list"/>
+        <addUniqueConstraint schemaName="${socle_schema_name}" 
+                             columnNames="code" constraintName="socle_param_list_unique_contraint_code"
+                             tableName="socle_param_list"/>
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"
+                                 baseColumnNames="param_code" 
+                                 baseTableName="socle_param_list" 
+                                 constraintName="socle_param_list_forerign_key_contraint_param_code" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="socle_param_code"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+    </changeSet>
+    
+    
+    <changeSet author="Alassani (generated)" id="03-12-2020-17-44">
+        <createTable  schemaName="${socle_schema_name}" tableName="socle_fonction">
+            <column name="code" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="libelle" type="VARCHAR(255)"/>
+            <column name="page_uri_base" type="VARCHAR(500)"/>
+            <column name="api_uri_base" type="VARCHAR(500)"/>
+            <column name="parent" type="VARCHAR(40)"/>
+            <column name="type_fonction" type="VARCHAR(40)"/>
+            <column name="niveau_habilitation_max" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    
+    <changeSet  author="Alassani (generated)" id="03-12-2020-17-45">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="code" constraintName="socle_fonction_pkey"
+                       tableName="socle_fonction"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"
+                                      baseColumnNames="parent" 
+                                      baseTableName="socle_fonction" 
+                                      constraintName="socle_fonction_foreign_key_contraint_parent" 
+                                      deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                      onUpdate="NO ACTION" referencedColumnNames="code" 
+                                      referencedTableName="socle_fonction"
+                                      referencedTableSchemaName="${socle_schema_name}"/>
+             
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"
+                                 baseColumnNames="niveau_habilitation_max" 
+                                 baseTableName="socle_fonction" 
+                                 constraintName="socle_fonction_foreign_key_contraint_niveau_habilitation_max" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="socle_param_list"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-39">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_actions_effectuees">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ip" type="VARCHAR(255)"/>
+            <column name="lieu" type="VARCHAR(255)"/>
+            <column name="terminal" type="VARCHAR(255)"/>
+            <column name="code_action" type="VARCHAR(40)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="02-12-2022-09-55">
+        <dropColumn columnName="version" schemaName="${socle_schema_name}" tableName="spr_w_actions_effectuees"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-40">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_actions_permise">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_couleur" type="VARCHAR(255)"/>
+            <column name="code_action" type="VARCHAR(40)"/>
+            <column name="niveau_habilitation" type="VARCHAR(40)"/>
+            <column name="code_etat" type="VARCHAR(40)"/>
+            <column name="code_etat_suivant" type="VARCHAR(40)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="callbak_id" type="VARCHAR(255)"/>
+            <column name="indic_comment" type="VARCHAR(15)"/>
+            <column name="info_transition" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+   
+    <changeSet author="kouwonou (generated)" id="1568630363742-41">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_callbacks">
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="implementation" type="VARCHAR(255)"/>
+            <column name="libelle" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-42">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_etats">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_couleur" type="VARCHAR(255)"/>
+            <column name="code_etat" type="VARCHAR(255)"/>
+            <column name="ide_etape" type="INT"/>
+            <column name="ide_sequence" type="INT"/>
+            <column name="libelle_etat" type="VARCHAR(255)"/>
+            <column name="indic_modif_authorisee" type="VARCHAR(40)"/>
+            <column name="ide_workflow" type="VARCHAR(255)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="ind_etape_validation" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-43">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_etats_utilisateurs_autorises">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="concept_metier" type="VARCHAR(255)"/>
+            <column name="id_objet" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+            <column name="code_etat" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+     <changeSet author="Alassani (generated)" id="04-12-2022-21-32">
+        <dropColumn columnName="version" schemaName="${socle_schema_name}" tableName="spr_w_etats_utilisateurs_autorises"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-44">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_evenement_genere">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ide_action" type="VARCHAR(40)"/>
+            <column name="code_event" type="VARCHAR(255)"/>
+            <column name="event_statut" type="VARCHAR(40)"/>
+            <column name="id_objet" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="concept_metier" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-45">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_evenements">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_action" type="VARCHAR(40)"/>
+            <column name="code_event" type="VARCHAR(40)"/>
+            <column name="ide_workflow" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-46">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_parametres_evenement">
+            <column name="event_id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="event_value" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-47">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_type_workflow">
+            <column name="code" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="dernier_numero" type="INT"/>
+            <column name="libelle" type="VARCHAR(255)"/>
+            <column name="etat_id" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-49">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_workflows_cycle">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(500)"/>
+            <column name="libelle" type="VARCHAR(100)"/>
+            <column name="numero" type="INT"/>
+            <column name="code_liste_actions" type="VARCHAR(40)"/>
+            <column name="code_statut" type="VARCHAR(40)"/>
+            <column name="code_type_workflow" type="VARCHAR(255)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-48">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_workflow_cycle_objet">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="domaine_id" type="VARCHAR(40)"/>
+            <column name="workflow_id" type="VARCHAR(255)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-94">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_workflows_cycle_pkey" tableName="spr_w_workflows_cycle"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-173">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="workflow_id" baseTableName="spr_w_workflow_cycle_objet" constraintName="fkejaqvi22yl5g3ulfcxqjpg6oj" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_workflows_cycle"/>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-130">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="domaine_id" baseTableName="spr_w_workflow_cycle_objet" constraintName="fk2eps1nuply7diq4bj13w8gp19" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    
+    <changeSet author="kouwonou (generated)" id="1568630363742-84">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_actions_effectuees_pkey" tableName="spr_w_actions_effectuees"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-85">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_actions_permise_pkey" tableName="spr_w_actions_permise"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-86">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="code" constraintName="spr_w_callbacks_pkey" tableName="spr_w_callbacks"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-87">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_etats_pkey" tableName="spr_w_etats"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-88">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_etats_utilisateurs_autorises_pkey" tableName="spr_w_etats_utilisateurs_autorises"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-89">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_evenement_genere_pkey" tableName="spr_w_evenement_genere"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-90">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_evenements_pkey" tableName="spr_w_evenements"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-91">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="event_id, name" constraintName="spr_w_parametres_evenement_pkey" tableName="spr_w_parametres_evenement"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-92">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="code" constraintName="spr_w_type_workflow_pkey" tableName="spr_w_type_workflow"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-93">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_workflow_cycle_objet_pkey" tableName="spr_w_workflow_cycle_objet"/>
+    </changeSet>
+    
+    <changeSet author="kouwonou (generated)" id="1568630363742-101">
+        <addUniqueConstraint schemaName="${socle_schema_name}" columnNames="code_action, code_event, ide_workflow" constraintName="uk4jh803pijlqjpo00he6p9g0c6" tableName="spr_w_evenements"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-146">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_event" baseTableName="spr_w_evenements" constraintName="fk846af8w5t5ar1laa773iepgdn" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-109">
+        <addUniqueConstraint schemaName="${socle_schema_name}" columnNames="code_etat, username, id_objet, concept_metier" constraintName="ukeddw221gee5ec7apvxieng3jm" tableName="spr_w_etats_utilisateurs_autorises"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-111">
+        <addUniqueConstraint schemaName="${socle_schema_name}" columnNames="code_action, code_etat" constraintName="ukhuv1bp13ox8r588tyg66vfqmw" tableName="spr_w_actions_permise"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-112">
+        <addUniqueConstraint schemaName="${socle_schema_name}" columnNames="code_etat, ide_workflow" constraintName="ukih19luwnghwml2ul7owqvg1h5" tableName="spr_w_etats"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-113">
+        <addUniqueConstraint schemaName="${socle_schema_name}" columnNames="ide_etape, ide_workflow, ide_sequence" constraintName="ukld4enc1qopwtnhdee9eyaiemd" tableName="spr_w_etats"/>
+    </changeSet>
+    
+     <changeSet author="kouwonou (generated)" id="1568630363742-119">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="ide_workflow" baseTableName="spr_w_evenements" constraintName="fk19d1dfpo3edu1fj172a8vdkr1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_workflows_cycle"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-132">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="etat_id" baseTableName="spr_w_type_workflow" constraintName="fk3gy03xc2jw1442l4ppd42mjsl" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_etats"/>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-143">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_etat" baseTableName="spr_w_etats_utilisateurs_autorises" constraintName="fk6o5og2n03f1ossoexv7gc1npw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_etats"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-148">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="ide_workflow" baseTableName="spr_w_etats" constraintName="fk9m0ptxovelccxi6f10bixiv78" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_workflows_cycle"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-164">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_action" baseTableName="spr_w_evenements" constraintName="fkclftyok3qujtfxwnsjej5hhxv" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_actions_permise"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-169">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="event_id" baseTableName="spr_w_parametres_evenement" constraintName="fkdcf3wvmtapj1iqbugj5hs533o" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_evenements"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-174">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="callbak_id" baseTableName="spr_w_actions_permise" constraintName="fkel98mwxf9b9msnr7597ygqgnl" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="code" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_callbacks"/>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-191">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_event" baseTableName="spr_w_evenement_genere" constraintName="fkjqkeer7g46rbliw8iken2nav7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_evenements"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-193">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="ide_action" baseTableName="spr_w_evenement_genere" constraintName="fkkgai7x3jxogq6hn2dd06kxxhu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_actions_permise"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-194">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="event_statut" baseTableName="spr_w_evenement_genere" constraintName="fklvofo6gkiyigd2iry1ghc7kwu" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-196">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_etat_suivant" baseTableName="spr_w_actions_permise" constraintName="fkmt1vh7hx61ssdg4wvdsy0u6hx" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_etats"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-199">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_etat" baseTableName="spr_w_actions_permise" constraintName="fkp8gb23gj54bccs6v696w79717" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_etats"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-211">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_type_workflow" baseTableName="spr_w_workflows_cycle" constraintName="fksvnlp1jo9p6v86mplfkkg0q5w" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="code" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_type_workflow"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-142">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_action" baseTableName="spr_w_actions_effectuees" constraintName="fk6geb8cqax4jbvrl1jwwrc724k" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_actions_permise"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-127">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_action" baseTableName="spr_w_actions_permise" constraintName="fk1w0h5lqm0y1vlc9h7rg5ls5b5" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-128">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="niveau_habilitation" baseTableName="spr_w_actions_permise" constraintName="fk1w0h5lqm0y1vlc_niveau_habilitation" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-184">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="indic_comment" baseTableName="spr_w_actions_permise" constraintName="fkgu0rmia79se9fhhfclxrjxdaq" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-176">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="info_transition" baseTableName="spr_w_actions_permise" constraintName="fkf4usa0o98iasja5fl8rx8vhxr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="pierre (generated)" id="add-table-action-permise-callback">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_w_actions_permise_executor">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="action_id" type="VARCHAR(255)"/>
+            <column name="callbak_id" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-8">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_codifications">
+            <column name="code_codif" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_activation" type="date"/>
+            <column name="libelle" type="VARCHAR(255)"/>
+            <column name="domaine" type="VARCHAR(40)"/>
+            <column name="porte" type="VARCHAR(40)"/>
+            <column name="code_statut" type="VARCHAR(40)"/>
+            <column name="type_codif" type="VARCHAR(40)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-57">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="code_codif" constraintName="spr_codifications_pkey" tableName="spr_codifications"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-149">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="type_codif" baseTableName="spr_codifications" constraintName="fk9p4reru5oox5tfmr77ir5dmmf" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-160">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="porte" baseTableName="spr_codifications" constraintName="fkb2g1iqj1ncqsbp2odt1544cxa" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-163">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="domaine" baseTableName="spr_codifications" constraintName="fkc3gp9hfqhjgla9yv0chgcwacs" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-177">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_statut" baseTableName="spr_codifications" constraintName="fkf8lqfjovjg0c52ddj5ql8urgr" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="pierre (generated)" id="spr_w_actions_permise_executor_pk">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_w_actions_permise_executor_pkey" tableName="spr_w_actions_permise_executor"/>
+    </changeSet>
+    <changeSet author="pierre (generated)" id="spr_w_actions_permise_executor_uc">
+        <addUniqueConstraint schemaName="${socle_schema_name}" columnNames="action_id, callbak_id" constraintName="spr_w_actions_permise_executor_uc" tableName="spr_w_actions_permise_executor"/>
+    </changeSet>
+    <changeSet author="pierre (generated)" id="spr_w_actions_permise_executor_callback_id_fk">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="callbak_id" baseTableName="spr_w_actions_permise_executor" constraintName="spr_w_actions_permise_executor_callback_id_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="code" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_callbacks"/>
+    </changeSet>
+    <changeSet author="pierre (generated)" id="spr_w_actions_permise_executor_action_fk">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="action_id" baseTableName="spr_w_actions_permise_executor" constraintName="spr_w_actions_permise_executor_action_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_actions_permise"/>
+    </changeSet>
+    <changeSet author="pierre" id="spr_w_actions_permise_numero_ordre">
+        <addColumn schemaName="${socle_schema_name}" tableName="spr_w_actions_permise_executor">
+            <column name="numero_ordre" type="INT"/>
+        </addColumn>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-190">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="indic_modif_authorisee" baseTableName="spr_w_etats" constraintName="fkjhcqha0v4lf5t3vhcgf3xk1e7" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+       <changeSet author="kouwonou (generated)" id="1568630363742-162">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="ind_etape_validation" baseTableName="spr_w_etats" constraintName="fkc1x6q338okevq1xjalyqnkbix" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+     <changeSet author="Bouchara" id="spr_etat_delai_execution">
+        <addColumn schemaName="${socle_schema_name}" tableName="spr_w_etats">
+            <column name="delai_execution" type="INT"/>
+        </addColumn>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-198">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="concept_metier" baseTableName="spr_w_evenement_genere" constraintName="fkovn70tx5vrahwty9wrui0hrin" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-204">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_liste_actions" baseTableName="spr_w_workflows_cycle" constraintName="fkr9ee1qrmclo5x6nt3fx7j59c1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="code_codif" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_codifications"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-159">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_statut" baseTableName="spr_w_workflows_cycle" constraintName="fkb13lfgcaslxl8fkvotxob4ba9" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="Bouchara" id="spr_workflow_delai">
+        <addColumn schemaName="${socle_schema_name}" tableName="spr_w_workflows_cycle">
+            <column name="nombre_jours" type="INT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-51">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_workflows">
+            <column name="id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_liste_actions" type="VARCHAR(40)"/>
+            <column name="code_domaine" type="VARCHAR(40)"/>
+            <column name="code_statut" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-96">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_workflows_pkey" tableName="spr_workflows"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-144">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_statut" baseTableName="spr_workflows" constraintName="fk7i3punsdv1vh0g9lpr8cbbkom" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-157">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_domaine" baseTableName="spr_workflows" constraintName="fkauhx1sj7kd7pe0juiejl8klc3" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="code_codif" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_codifications"/>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-165">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_liste_actions" baseTableName="spr_workflows" constraintName="fkcm0rgnajs4vl49f0b2dse27lm" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="code_codif" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_codifications"/>
+    </changeSet>
+    <changeSet author="Bouchara" id="spr_workflow_jours">
+        <addColumn schemaName="${socle_schema_name}" tableName="spr_workflows">
+            <column name="nombre_jours" type="INT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-50">
+            <createTable  schemaName="${socle_schema_name}" tableName="spr_workflow_steps">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_couleur" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code_statut" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="libelle_statut" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ordre" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="etape_sequence" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="terminaison" type="BOOLEAN"/>
+            <column name="next_action" type="VARCHAR(40)"/>
+            <column name="previous_action" type="VARCHAR(40)"/>
+            <column name="id_worwflow" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-95">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_workflow_steps_pkey" tableName="spr_workflow_steps"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-107">
+        <addUniqueConstraint schemaName="${socle_schema_name}" columnNames="ordre, id_worwflow, etape_sequence" constraintName="ukbdrsscy1p1ptdr3lri6csvsvf" tableName="spr_workflow_steps"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-120">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="next_action" baseTableName="spr_workflow_steps" constraintName="fk1cqivhcr10llumpyfuw5q8f4v" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-185">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="previous_action" baseTableName="spr_workflow_steps" constraintName="fkhhk3tw39ne1a38vs4839mfq5g" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-209">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="id_worwflow" baseTableName="spr_workflow_steps" constraintName="fksjm40wj4j5dmydcen43gaxb2q" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_workflows"/>
+    </changeSet>
+    
+    <changeSet author="kouwonou (generated)" id="1568630363742-32">
+        <createTable  schemaName="${socle_schema_name}" tableName="spr_trackings">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="comment" type="VARCHAR(500)"/>
+            <column name="date_event" type="TIMESTAMP(6) WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="id_object" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="next_owner" type="VARCHAR(20)"/>
+            <column name="concept_metier" type="VARCHAR(40)"/>
+            <column name="nature_event" type="VARCHAR(40)"/>
+            <column name="code_statut" type="VARCHAR(40)"/>
+            <column name="code_action_permise" type="VARCHAR(40)"/>
+            <column name="code_etat_final" type="VARCHAR(40)"/>
+            <column name="code_etat_initial" type="VARCHAR(40)"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+     <changeSet author="Alassani (generated)" id="04-12-2022-21-30">
+        <dropColumn columnName="version" schemaName="${socle_schema_name}" tableName="spr_trackings"/>
+    </changeSet>
+    <changeSet author="pierre" id="add-commentaire_anonyme_on_tracking">
+        <addColumn schemaName="${socle_schema_name}" tableName="spr_trackings">
+            <column name="commentaire_anonyme" type="VARCHAR(40)"/>
+        </addColumn>
+    </changeSet>  
+     <changeSet author="kouwonou (generated)" id="1568630363742-80">
+        <addPrimaryKey schemaName="${socle_schema_name}" columnNames="id" constraintName="spr_trackings_pkey" tableName="spr_trackings"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-131">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}" baseColumnNames="code_action_permise" baseTableName="spr_trackings" constraintName="fk3gso742ugjj6tpw171nf5c49v" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_actions_permise"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-182">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_statut" baseTableName="spr_trackings" constraintName="fkghw40wm15onbd1jhgopkg4q4t" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_workflow_steps"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-171">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="nature_event" baseTableName="spr_trackings" constraintName="fke316ybifegsbex0ju8ld7842u" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+     <changeSet author="kouwonou (generated)" id="1568630363742-150">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="concept_metier" baseTableName="spr_trackings" constraintName="fka2h2byp2qhs709dw90uwmqbrp" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="socle_param_list"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-138">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_etat_initial" baseTableName="spr_trackings" constraintName="fk5ho737h5twd69fd6tqwivcmdw" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_etats"/>
+    </changeSet>
+    <changeSet author="kouwonou (generated)" id="1568630363742-140">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_etat_final" baseTableName="spr_trackings" constraintName="fk5sf6d85onhcw8mrfmjyitxmyc" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_w_etats"/>
+    </changeSet>
+<!--    <changeSet author="kouwonou (generated)" id="1568630363742-165">
+        <addForeignKeyConstraint baseTableSchemaName="${socle_schema_name}"  baseColumnNames="code_liste_actions" baseTableName="spr_workflows" constraintName="fkcm0rgnajs4vl49f0b2dse27lm" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="code_codif" referencedTableSchemaName="${socle_schema_name}" referencedTableName="spr_codifications"/>
+    </changeSet>-->
+    
+   
+</databaseChangeLog>

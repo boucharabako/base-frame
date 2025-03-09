@@ -1,0 +1,16 @@
+com\base\frame\account\controller\UtilisateurNewController.class
+com\base\frame\account\controller\ErrorController.class
+com\base\frame\account\controller\Userlog.class
+com\base\frame\account\resources\ProfilRessource.class
+com\base\frameAncien\account\controller\ProfilController.class
+com\base\frame\account\controller\UserConnectedController.class
+com\base\frameAncien\account\controller\modalController.class
+com\base\frame\account\controller\PasswordEditController.class
+com\base\frameAncien\account\controller\LoginController.class
+com\base\frame\account\resources\PictureRest.class
+com\base\frameAncien\account\controller\PasswordController.class
+com\base\frameAncien\account\controller\UtilisateurController.class
+com\base\frame\account\resources\UtilisateurResource.class
+com\base\frame\account\controller\ProfilController.class
+com\base\frameAncien\account\controller\GroupeController.class
+com\base\frame\account\controller\GroupeUtilisateurController.class

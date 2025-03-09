@@ -1,0 +1,436 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+   
+   <changeSet author="Alassani (generated)" id="Fichier-0">
+        <createTable schemaName="${sec_schema_name}" tableName="sec_fichier">
+            <column name="id" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="created_user_agent_info" type="VARCHAR(255)"/>
+            <column name="created_user_device" type="VARCHAR(255)"/>
+            <column name="created_user_zone" type="VARCHAR(255)"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_user_ip_adresse" type="VARCHAR(255)"/>
+            <column name="last_modified_user_agent_info" type="VARCHAR(255)"/>
+            <column name="last_modified_user_device" type="VARCHAR(255)"/>
+            <column name="last_modified_user_zone" type="VARCHAR(255)"/>
+<!--            <column name="version" type="INT">
+                <constraints nullable="false"/>
+            </column>-->
+            <column name="profile_picture" type="BLOB"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-3">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" constraintName="sec_fichier_pkey" tableName="sec_fichier"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-7">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_groupes">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="code" type="VARCHAR(40)"/>
+            <column name="intitule" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(500)"/>
+            <column name="etat" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-1">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_profils">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="code" type="VARCHAR(40)"/>
+            <column name="intitule" type="VARCHAR(255)"/>
+            <column name="description" type="VARCHAR(500)"/>
+            <column name="etat" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="21-10-2020-17-49">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" constraintName="sec_profils_pkey" tableName="sec_profils"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-8">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" constraintName="sec_groupe_pkey" tableName="sec_groupes"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="21-10-2020-17-48">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_groupe_profil">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="groupe" type="VARCHAR(40)"/>
+            <column name="profil" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-9">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" constraintName="sec_groupe_profil_pkey" tableName="sec_groupe_profil"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-0">
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="groupe" 
+                                 baseTableName="sec_groupe_profil" 
+                                 constraintName="sec_groupe_profil_forerign_key_contraint_groupe" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_groupes"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-10">
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="profil" 
+                                 baseTableName="sec_groupe_profil" 
+                                 constraintName="sec_groupe_profil_forerign_key_contraint_profil" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_profils"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+    </changeSet>
+    <changeSet  author="Alassani (generated)" id="04-12-2020-18-52">
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="profil,groupe" constraintName="sec_groupe_profil_unique_contraint_profil_groupe"
+                             tableName="sec_groupe_profil"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="20-09-2022-4">
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="code" constraintName="sec_groupes_unique_contraint_code"
+                             tableName="sec_groupes"/>
+    </changeSet>
+     <changeSet author="Alassani (generated)" id="03-12-2020-16-467">
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="etat" 
+                                 baseTableName="sec_groupes" 
+                                 constraintName="sec_groupes_forerign_key_contraint_etat" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="socle_param_list"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+    </changeSet>
+    
+   
+    <changeSet author="Alassani (generated)" id="02-12-2020-14-20">
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="code" constraintName="sec_profils_unique_contraint_code"
+                             tableName="sec_profils"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="03-12-2020-16-46">
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="etat" 
+                                 baseTableName="sec_profils" 
+                                 constraintName="sec_profils_forerign_key_contraint_etat" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="socle_param_list"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="DropContainte-2">   
+    <dropForeignKeyConstraint baseTableName="sec_profils" baseTableSchemaName="${sec_schema_name}"
+                                  constraintName="sec_profils_forerign_key_contraint_etat"/>
+    </changeSet>   
+    <changeSet author="Alassani (generated)" id="03-12-2020-16-46-2">
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="etat" 
+                                 baseTableName="sec_profils" 
+                                 constraintName="sec_profils_forerign_key_contraint_etat2" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="spr_w_etats"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="04-12-2020-18-50">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_habilitations">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="profil" type="VARCHAR(40)"/>
+            <column name="fonction" type="VARCHAR(40)"/>
+            <column name="niveau_habilitation" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="04-12-2020-18-51">
+        <addPrimaryKey schemaName="${sec_schema_name}" 
+                       columnNames="id" constraintName="sec_habilitations_pkey" 
+                       tableName="sec_habilitations"/>
+        
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="profil" 
+                                 baseTableName="sec_habilitations" 
+                                 constraintName="sec_habilitations_forerign_key_contraint_profil" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_profils"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="niveau_habilitation" 
+                                 baseTableName="sec_habilitations" 
+                                 constraintName="sec_habilitations_forerign_key_contraint_niveau_habilitation" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="socle_param_list"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="fonction" 
+                                 baseTableName="sec_habilitations" 
+                                 constraintName="sec_habilitations_forerign_key_contraint_fonction" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="code" 
+                                 referencedTableName="socle_fonction"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+    </changeSet>
+    
+    <changeSet  author="Alassani (generated)" id="20-09-2022-2">
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="profil,fonction" constraintName="sec_habilitations_unique_contraint_profil_fonction"
+                             tableName="sec_habilitations"/>
+    </changeSet>
+    
+    <changeSet author="Alassani (generated)" id="07-12-2020-14-05">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_utilisateurs">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="username" type="VARCHAR(40)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="etat" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="07-12-2020-14-06">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" 
+                       constraintName="sec_utilisateurs_pkey" tableName="sec_utilisateurs"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="etat" 
+                                 baseTableName="sec_utilisateurs" 
+                                 constraintName="sec_utilisateurs_forerign_key_contraint_etat" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="socle_param_list"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+        
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="username" constraintName="sec_utilisateurs_unique_contraint_username"
+                             tableName="sec_utilisateurs"/>
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="email" constraintName="sec_utilisateurs_unique_contraint_email"
+                             tableName="sec_utilisateurs"/>
+           
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="DropContainte-etatParamList">   
+        <dropForeignKeyConstraint baseTableName="sec_utilisateurs" baseTableSchemaName="${sec_schema_name}"
+                                  constraintName="sec_utilisateurs_forerign_key_contraint_etat"/>
+    </changeSet>
+    
+     <changeSet author="Alassani (generated)" id="Add_foreign_key_etat"> 
+         <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="etat" 
+                                 baseTableName="sec_utilisateurs" 
+                                 constraintName="sec_utilisateurs_forerign_key_contraint_etat2" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="spr_w_etats"
+                                 referencedTableSchemaName="${socle_schema_name}"/>  
+        
+    </changeSet>
+   
+    
+    <changeSet author="Alassani (generated)" id="07-12-2020-14-27">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_utilisateur_password">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="utilisateur" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="07-12-2020-14-29">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" 
+                       constraintName="sec_utilisateur_password_pkey" tableName="sec_utilisateur_password"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="utilisateur" 
+                                 baseTableName="sec_utilisateur_password" 
+                                 constraintName="sec_utilisateur_password_forerign_key_contraint_utilisateur" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_utilisateurs"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="utilisateur" constraintName="sec_utilisateur_password_unique_contraint_utilisateur"
+                             tableName="sec_utilisateur_password"/>
+    </changeSet>
+    
+    
+    <!--*******-->
+     <changeSet author="Alassani (generated)" id="20-09-2022-5">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_utilisateur_groupe">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="utilisateur" type="VARCHAR(255)"/>
+            <column name="groupe" type="VARCHAR(255)"/>
+        </createTable>
+     </changeSet>
+     <changeSet author="Assima (generated)" id="07-12-2020-14-32">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" 
+                       constraintName="sec_utilisateur_groupe_pkey" tableName="sec_utilisateur_groupe"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="utilisateur" 
+                                 baseTableName="sec_utilisateur_groupe" 
+                                 constraintName="sec_utilisateur_groupe_forerign_key_contraint_utilisateur" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_utilisateurs"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+        
+        
+                
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="groupe" 
+                                 baseTableName="sec_utilisateur_groupe" 
+                                 constraintName="sec_utilisateur_groupe_forerign_key_contraint_groupe" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_groupes"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="utilisateur, groupe" constraintName="sec_utilisateur_groupe_unique_contraint_utilisateur"
+                             tableName="sec_utilisateur_groupe"/>
+    </changeSet>
+
+    <changeSet author="Alassani (generated)" id="07-12-2020-14-31">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_utilisateur_profil">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="utilisateur" type="VARCHAR(255)"/>
+            <column name="profil" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    
+    <changeSet author="Alassani (generated)" id="07-12-2020-14-32">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" 
+                       constraintName="sec_utilisateur_profil_pkey" tableName="sec_utilisateur_profil"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="utilisateur" 
+                                 baseTableName="sec_utilisateur_profil" 
+                                 constraintName="sec_utilisateur_profil_forerign_key_contraint_utilisateur" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_utilisateurs"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+        
+        
+                
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="profil" 
+                                 baseTableName="sec_utilisateur_profil" 
+                                 constraintName="sec_utilisateur_profil_forerign_key_contraint_profil" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_profils"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+        <addUniqueConstraint schemaName="${sec_schema_name}" 
+                             columnNames="utilisateur, profil" constraintName="sec_utilisateur_profil_unique_contraint_utilisateur"
+                             tableName="sec_utilisateur_profil"/>
+    </changeSet>
+    
+    
+    
+    <changeSet author="Alassani (generated)" id="08-12-2020-17-16">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_utilisateur_reinit_password">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="utilisateur" type="VARCHAR(255)"/>
+            <column name="reinit_code" type="VARCHAR(255)"/>
+            <column name="date_expiration" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="etat" type="VARCHAR(40)"/>
+        </createTable>
+    </changeSet>
+    
+    <changeSet author="Alassani (generated)" id="08-12-2020-17-17">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" 
+                       constraintName="sec_utilisateur_reinit_password_pkey" tableName="sec_utilisateur_reinit_password"/>
+        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="utilisateur" 
+                                 baseTableName="sec_utilisateur_reinit_password" 
+                                 constraintName="sec_utilisateur_reinit_password_forerign_key_contraint_utilisateur" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="sec_utilisateurs"
+                                 referencedTableSchemaName="${sec_schema_name}"/>
+                        
+        <addForeignKeyConstraint baseTableSchemaName="${sec_schema_name}"
+                                 baseColumnNames="etat" 
+                                 baseTableName="sec_utilisateur_reinit_password" 
+                                 constraintName="sec_utilisateur_reinit_password_forerign_key_contraint_etat" 
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" 
+                                 onUpdate="NO ACTION" referencedColumnNames="id" 
+                                 referencedTableName="socle_param_list"
+                                 referencedTableSchemaName="${socle_schema_name}"/>
+    </changeSet>
+    
+    <changeSet author="Alassani (generated)" id="21-11-2022-0">
+        <createTable  schemaName="${sec_schema_name}" tableName="sec_authorisation">
+            <column name="id" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)"/>
+            <column name="created_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="ide_objet" type="VARCHAR(40)"/>
+            <column name="ide_objet_autorisant" type="VARCHAR(255)"/>
+            
+        </createTable>
+    </changeSet>
+    <changeSet author="Alassani (generated)" id="21-11-2022-1">
+        <addPrimaryKey schemaName="${sec_schema_name}" columnNames="id" 
+                       constraintName="sec_authorisation_pkey" tableName="sec_authorisation"/>
+    </changeSet>
+</databaseChangeLog>

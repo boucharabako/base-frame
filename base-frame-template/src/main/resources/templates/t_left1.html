@@ -1,0 +1,58 @@
+<!--
+<nav id="main-menu-navigation" class="navigation-main">
+    <div class="tab-content tabcont" style="display: block;">
+         <div  class="tab-pane  habil  menu-etiquette " id="habilitation">
+            <div class="nav-item open habil " sec:authorize="hasAnyAuthority('FC_HABILIT')">
+                <a ><i class="ik ik-layers"></i><span>Habilitation</span> </a>
+                <div class="submenu-content">
+                    <a class="habil1" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/utilisateur/liste}" sec:authorize="hasAnyAuthority('FC_USER')">Utilisateurs</a>
+                    <a class="habil2" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/profil-utilisateur/list}"  sec:authorize="hasAnyAuthority('FC_PROF')">Profils d'utilisateurs</a>
+                    <a onclick="saveInSession('habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item habilitation3">Groupe d'utilisateurs</a>
+
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</nav>-->
+
+
+<nav id="main-menu-navigation" class="navigation-main">
+    <div class="tab-content tabcont" style="display: block;">
+        <div  class="tab-pane  habil  menu-etiquette " id="habilitation">
+            <div class="nav-item open habil " sec:authorize="hasAnyAuthority('FC_HABILIT')">
+                <a ><i class="ik ik-layers"></i><span>Habilitation</span> </a>
+                <div class="submenu-content">
+                    <a class="habil1" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/utilisateur/liste}" sec:authorize="hasAnyAuthority('FC_USER')">Utilisateurs</a>
+                    <a class="habil2" onclick="saveInSession('habil'); getClassSession(this);"  target="_self" th:href="@{/profil-utilisateur/list}"  sec:authorize="hasAnyAuthority('FC_PROF')">Profils d'utilisateurs</a>
+                    <!--<a onclick="saveInSession('habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item habilitation3">Groupe d'utilisateurs</a>-->
+
+                </div>
+            </div>
+        </div>
+<!--        <div  class="tab-pane  config  menu-etiquette " id="configuration">
+            <div class="nav-item open config ">
+                <a ><i class="ik ik-layers"></i><span>Configuration</span> </a>
+                <div class="submenu-content">
+                    <a class="config1" onclick="saveInSession('config'); getClassSession(this);"  target="_self" th:href="@{/}">Caissse</a>
+                    <a class="config2" onclick="saveInSession('config'); getClassSession(this);"  target="_self" th:href="@{/}">Guichet</a>
+                    <a onclick="saveInSession('habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item habilitation3">Groupe d'utilisateurs</a>
+
+                </div>
+            </div>
+        </div>
+        <div  class="tab-pane  reg module-menu menu-etiquette " id="regie">
+            <div class="nav-item open reg">
+                <a ><i class="ik ik-layers"></i><span>Régie</span> </a>
+                <div class="submenu-content">
+                    <a class="reg1" onclick="saveInSession('reg'); getClassSession(this);"  target="_self" th:href="@{/}">Caissse</a>
+                    <a class="reg2" onclick="saveInSession('reg'); getClassSession(this);"  target="_self" th:href="@{/}">Guichet</a>
+                    <a onclick="saveInSession('habil'); getClassSession(this);" th:href="@{/groupe-utilisateur/}" class="menu-item habilitation3">Groupe d'utilisateurs</a>
+
+                </div>
+            </div>
+        </div>-->
+        
+    </div>
+</nav>

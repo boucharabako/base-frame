@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+      
+    
+    <changeSet author="Alassani" id="add-column-titre">
+        <addColumn schemaName="${sec_schema_name}" tableName="sec_utilisateurs">
+            <column name="titre" type="VARCHAR(500)"/>
+        </addColumn>
+        <addColumn schemaName="${sec_schema_name}" tableName="sec_utilisateurs">
+            <column name="tel" type="VARCHAR(500)"/>
+        </addColumn>
+        <addColumn schemaName="${sec_schema_name}" tableName="sec_utilisateurs">
+            <column name="picture" type="VARCHAR(500)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

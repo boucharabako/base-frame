@@ -1,0 +1,71 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15" th:href="@{/img/logoPolice.jpg}" type="image/x-icon">
+<img src="img/casquette.jpg"  width="50" />                </div>
+                <div class="sidebar-brand-text mx-3">Labari <sup>2022</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Acceuil</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Habilitation
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Gestion des utilisateurs</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" th:href="@{parametre/utilisateur}">Utilisateurs</a>
+                        <a class="collapse-item" href="ards.html">Groupes</a>
+						<a class="collapse-item" href="cards.html">Profiles</a>
+                    </div>
+                </div>
+            </li>
+
+           
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+            
+
+        </ul>
+<!--<ul class="nav nav-bar-nav hidden-xs">
+    <li><a href="#" class="waves-effect waves-light"><span class="ik ik-settings m-r-5"></span>Dropdown</a></li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown"
+           role="button" aria-haspopup="true" aria-expanded="false"><span class="ik ik-settings m-r-5"></span>Parametrage <span
+                class="ik ik-chevron-down"></span></a>
+        <ul class="dropdown-menu">
+            <li class="tab"><a onclick="saveInSession('config');"  data-toggle="tab" aria-expanded="false" href="#configuration"><span class="ik ik-layers m-r-5"></span>Configuration</a></li>
+            <li class="tab"><a onclick="saveInSession('reg');"  data-toggle="tab" aria-expanded="false" href="#regie"><span class="ik ik-layers m-r-5"></span>Régie</a></li>
+            <li class="tab"><a onclick="saveInSession('paramTiers'); menuInContent('paramTiers');" data-toggle="tab" aria-expanded="false" href="#param-Tiers"><span class="ik ik-user-check m-r-5"></span>Profil d'utilisateurs</a></li>                                    
+        </ul>
+    </li>
+</ul>-->
+
