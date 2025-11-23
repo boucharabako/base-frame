@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/base-frame-account/base-frame-account-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-account/base-frame-account-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-account/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-account/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-httpsession-security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-socle/base-frame-socle-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-socle/base-frame-socle-web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-socle/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-socle/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-template/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-utils/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/base-frame-web-resources/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

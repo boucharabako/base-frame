@@ -1,47 +1,47 @@
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurProfilRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\GroupesDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\GroupeRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Profil.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\ProfilsDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurPassword.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\ProfilService.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurProfilDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Autorisation.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Titre.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\StatutDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\iservice\ILoginService.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\UtilisateurService.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\conf\UserConfig.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\AutorisationRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Groupe.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Habilitation.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\AutorisationServiceImpl.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\HabilitationRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\ProfilRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Fichier.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\iservice\IProfilService.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurGroupeRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dao\ProfilDAO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\GroupeUtilisateurDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\GroupeProfil.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\iservice\IUtilisateurService.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UserProfilDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\HabilitationDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\ProfilDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurGroupeDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurGroupe.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\GroupeUtilisateurDTO_1.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\exceptions\UserNotActivatedException.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\LoginService.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurReinitPassword.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dao\UtilisateurDAO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Utilisateur.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\CustomUtilServiceImpl.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurReinitPasswordRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\ReinitPasswordConfirmationDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurProfil.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurPasswordDTO.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurPasswordRepository.java
-C:\Users\NANO TECH\Documents\NetBeansProjects\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\utils\AccountConstant.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Titre.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\exceptions\UserNotActivatedException.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\GroupeUtilisateurDTO_1.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\iservice\IUtilisateurService.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\AutorisationRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dao\ProfilDAO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\ProfilRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurGroupeRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\HabilitationRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Habilitation.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\LoginService.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Groupe.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\iservice\ILoginService.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\conf\UserConfig.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Utilisateur.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\UtilisateurService.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\ReinitPasswordConfirmationDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurProfil.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurReinitPasswordRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\GroupesDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Fichier.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dao\UtilisateurDAO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\StatutDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\GroupeRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurProfilRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\utils\AccountConstant.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Profil.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\iservice\IProfilService.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurPasswordDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurPassword.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurGroupe.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\GroupeUtilisateurDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\AutorisationServiceImpl.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\ProfilDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\CustomUtilServiceImpl.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\GroupeProfil.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\service\ProfilService.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\ProfilsDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\Autorisation.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\core\repository\UtilisateurPasswordRepository.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurGroupeDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\entity\UtilisateurReinitPassword.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UserProfilDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\HabilitationDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurDTO.java
+C:\Users\Bouchara\Documents\MemoireNetbeans\base-frame\base-frame-account\base-frame-account-core\src\main\java\com\base\frame\account\dto\UtilisateurProfilDTO.java
