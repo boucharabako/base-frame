@@ -77,4 +77,10 @@ public class SocleConstant {
     public static final String DAY_PARAM = "DAY_PARAM";
     public static final String MONTH_PARAM = "MONTH_PARAM";
     public static final String YEAR_PARAM = "YEAR_PARAM";
+    
+    
+    public static final String CODIFICATION_SEXE = "SEXE";
+    public static final String CODIFICATION_GROUPE_SANGUIN = "GROUPE_SANGUIN";
+
+
 }

@@ -11,6 +11,7 @@ import com.base.frame.socle.core.workflow.entity.Etat;
 import com.base.frame.socle.utils.audit.AbstractAuditingEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
@@ -42,22 +43,29 @@ public class Utilisateur extends AbstractAuditingEntity implements Serializable 
 
     @Column(name = "email")
     private String email;
-    
+
     @Column(name = "tel")
     private String tel;
     @Column(name = "titre")
     private String titre;
 
+    @Column(name = "sexe")
+    private String sexe;
+
+    @Column(name = "date_naissance")
+    private Instant dateNaissance;
+    
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "picture")
     private Fichier picture = new Fichier();
-    
+
     @ManyToOne
     @JoinColumn(name = "etat", referencedColumnName = "id", nullable = false)
     private Etat etat;
     @Transient
     Set<String> authorities = new HashSet<>();
+
     public String getId() {
         return id;
     }
@@ -138,10 +146,25 @@ public class Utilisateur extends AbstractAuditingEntity implements Serializable 
         this.picture = picture;
     }
 
-    
+    public String getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(String sexe) {
+        this.sexe = sexe;
+    }
+
+    public Instant getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Instant dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
     @Override
     public String toString() {
-        return "Utilisateur{" + "id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", etat=" + etat + '}';
+        return "Utilisateur{" + "id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", tel=" + tel + ", titre=" + titre + ", sexe=" + sexe + ", dateNaissance=" + dateNaissance + ", picture=" + picture + ", etat=" + etat + ", authorities=" + authorities + '}';
     }
 
 }

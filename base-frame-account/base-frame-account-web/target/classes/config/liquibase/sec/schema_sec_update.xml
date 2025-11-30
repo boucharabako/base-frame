@@ -13,4 +13,12 @@
             <column name="picture" type="VARCHAR(500)"/>
         </addColumn>
     </changeSet>
+    <changeSet author="bouchara" id="add-column-titre-10">
+        <addColumn schemaName="${sec_schema_name}" tableName="sec_utilisateurs">
+            <column name="sexe" type="VARCHAR(50)"/>
+        </addColumn>
+        <addColumn schemaName="${sec_schema_name}" tableName="sec_utilisateurs">
+            <column name="date_naissance" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
