@@ -81,6 +81,9 @@ public class SocleConstant {
     
     public static final String CODIFICATION_SEXE = "SEXE";
     public static final String CODIFICATION_GROUPE_SANGUIN = "GROUPE_SANGUIN";
+    public static final String CODIFICATION_SPECIALITE = "SPECIALITE";
+    public static final String CODIFICATION_TYPE_ETABLISSEMENT = "TYPE_ETABLISSEMENT";
+    public static final String CODIFICATION_REGION = "REGION";
 
 
 }

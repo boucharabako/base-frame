@@ -95,7 +95,7 @@ VALUES
 
 
 
-ON CONFLICT (id) DO UPDATE 
+ON CONFLICT (id) DO UPDATE
 SET
 code_couleur= EXCLUDED.code_couleur,
 code_etat= EXCLUDED.code_etat,
@@ -103,3 +103,17 @@ code_etat_suivant= EXCLUDED.code_etat_suivant,
 code_action= EXCLUDED.code_action,
 callbak_id = EXCLUDED.callbak_id,
 niveau_habilitation = EXCLUDED.niveau_habilitation;
+
+
+-- Insertion des profils par défaut
+INSERT INTO securite.sec_profils(id, code, intitule, description, etat, created_by, last_modified_by)
+VALUES
+('PROFIL_PATIENT','PT', 'Patient','Profil pour les patients du système de santé','PROFIL002','SYSTEM','SYSTEM'),
+('PROFIL_PROFESSIONNEL_SANTE','PS', 'Professionnel de Santé','Profil pour les professionnels de santé du système','PROFIL002','SYSTEM','SYSTEM')
+
+ON CONFLICT (id) DO UPDATE
+SET
+code= EXCLUDED.code,
+intitule= EXCLUDED.intitule,
+description= EXCLUDED.description,
+etat= EXCLUDED.etat;
