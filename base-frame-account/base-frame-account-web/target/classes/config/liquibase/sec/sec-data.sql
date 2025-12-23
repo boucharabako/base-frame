@@ -2,6 +2,7 @@ INSERT INTO  socle.socle_fonction(code,libelle,page_uri_base,api_uri_base,parent
 VALUES 
 ('FC_ADMIN','Administration','/','/', null,'MENU','PARAM_NVX_SA'),
 ('FC_HABILIT','Habilitation','/','/', 'FC_ADMIN','MENU','PARAM_NVX_SA'),
+-- ('FC_RECEPTION','Réception','/','/', 'FC_PROFESSIONNEL','MENU','PARAM_NVX_SA'),
 ('FC_PROF','Gestion des profils','/profil','/parametre/profil', 'FC_HABILIT','FONCTION','PARAM_NVX_SA'),
 ('FC_USER','Gestion des utilisateurs','/utilisateur','/parametre/utilisateur', 'FC_HABILIT','FONCTION','PARAM_NVX_SA'),
 ('FC_GROUPE','Gestion des groupes','/groupe','/parametre/groupe', 'FC_HABILIT','FONCTION','PARAM_NVX_SA')

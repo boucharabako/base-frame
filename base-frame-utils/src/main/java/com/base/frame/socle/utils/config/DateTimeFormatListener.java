@@ -39,7 +39,7 @@ public class DateTimeFormatListener {
     @Autowired
     private ObjectMapper objectMapper;
     public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd::MM::yyyy");
-    public static final DateTimeFormatter FORMATTER_INSTANT = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    public static final DateTimeFormatter FORMATTER_INSTANT = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
     @Bean
     @Primary

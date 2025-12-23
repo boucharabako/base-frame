@@ -164,7 +164,7 @@ public class Utilisateur extends AbstractAuditingEntity implements Serializable 
 
     @Override
     public String toString() {
-        return "Utilisateur{" + "id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", tel=" + tel + ", titre=" + titre + ", sexe=" + sexe + ", dateNaissance=" + dateNaissance + ", picture=" + picture + ", etat=" + etat + ", authorities=" + authorities + '}';
+        return "Utilisateur{" + "id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", tel=" + tel + ", titre=" + titre + ", sexe=" + sexe + ", dateNaissance=" + dateNaissance + ", etat=" + etat + ", authorities=" + authorities + '}';
     }
 
 }

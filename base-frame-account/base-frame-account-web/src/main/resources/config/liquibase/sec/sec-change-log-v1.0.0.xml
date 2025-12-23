@@ -27,7 +27,7 @@
             stripComments="true"/>
     </changeSet>
     
-    <changeSet author="liquibase-docs" id="sec-data-v-1.73">
+    <changeSet author="liquibase-docs" id="sec-data-v-1.74">
         <sqlFile 
             encoding="utf8"
             endDelimiter="\nGO"
